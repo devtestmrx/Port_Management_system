@@ -10,6 +10,10 @@ import { PlacementList } from './components/Placement/PlacementList';
 import { MovementForm } from './components/Movements/MovementForm';
 import { MovementList } from './components/Movements/MovementList';
 import { AuditLogViewer } from './components/Audit/AuditLog';
+
+import { NaviresLanding } from './components/';
+
+
 import {
   BarChart3,
   Package,
