@@ -10,9 +10,7 @@ import { PlacementList } from './components/Placement/PlacementList';
 import { MovementForm } from './components/Movements/MovementForm';
 import { MovementList } from './components/Movements/MovementList';
 import { AuditLogViewer } from './components/Audit/AuditLog';
-
-import { NaviresLanding } from './components/';
-
+import { ShipsListing } from './components/LandManagement';
 
 import {
   BarChart3,
@@ -24,6 +22,7 @@ import {
   LogOut,
   Menu,
   X,
+  Ship,
 } from 'lucide-react';
 
 type View =
@@ -32,7 +31,8 @@ type View =
   | 'zones'
   | 'placement'
   | 'movements'
-  | 'audit';
+  | 'audit'
+  | 'ships';
 
 function MainApp() {
   const { user, profile, loading, signOut } = useAuth();
@@ -69,6 +69,7 @@ function MainApp() {
       allowed: true,
     },
     { id: 'movements', name: 'Movements', icon: TruckIcon, allowed: true },
+    { id: 'ships', name: 'Ships Listing', icon: Ship, allowed: true },
     { id: 'audit', name: 'Audit Log', icon: FileText, allowed: canViewAudit },
   ];
 
@@ -211,6 +212,8 @@ function MainApp() {
             <MovementList />
           </div>
         )}
+
+        {currentView === 'ships' && <ShipsListing />}
 
         {currentView === 'audit' && canViewAudit && <AuditLogViewer />}
       </main>
